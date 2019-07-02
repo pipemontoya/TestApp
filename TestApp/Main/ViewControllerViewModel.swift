@@ -13,9 +13,10 @@ protocol UserDelegate: class {
 }
 
 class ViewControllerViewModel {
-    
+
     weak var delegate: UserDelegate?
     private let api = ApiService.shared
+    var usersFiltered = [User]()
     var users: [User] {
         get {
             let realm = RealmService.shared
