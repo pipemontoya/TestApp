@@ -112,8 +112,15 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = viewModel.users[indexPath.row]
-        performSegue(withIdentifier: "detail", sender: user)
+        if isFiltering() {
+            let user = viewModel.usersFiltered[indexPath.row]
+            performSegue(withIdentifier: "detail", sender: user)
+        } else {
+            let user = viewModel.users[indexPath.row]
+            performSegue(withIdentifier: "detail", sender: user)
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
