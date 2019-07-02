@@ -9,12 +9,38 @@
 import Foundation
 import CoreLocation
 
+protocol DetailDelegate: class {
+    func albums(_ albums: [Albums])
+}
+
 class DetailViewModel {
-    
+    weak var delegate: DetailDelegate?
+
     let user: User
+    private let api = ApiService.shared
+    var albums: [Albums] {
+        get {
+            let realm = RealmService.shared
+            guard let albums = realm.realm?.objects(Albums.self) else {return [Albums()]}
+            return Array(albums).filter({$0.userId == user.id})
+        }
+    }
     
     init(user: User) {
         self.user = user
+    }
+    
+    
+    func getAlbums() {
+        api.getAlbums {[weak self] (result) in
+            switch result {
+            case .success(let albums):
+                _ = albums
+                self?.delegate?.albums(albums)
+            case .failure(let error):
+                print("there was an error", error)
+            }
+        }
     }
     
     func createAnnotation() -> UserAnnotation {

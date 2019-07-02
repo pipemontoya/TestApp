@@ -15,12 +15,21 @@ class DetailUserViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var tableView: UITableView!
     var viewModel: DetailViewModel? = nil
     let regionRadius: CLLocationDistance = 1000
+    
+    deinit {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.mapView.delegate = nil
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        tableView.dataSource = self
+        viewModel?.getAlbums()
+        viewModel?.delegate = self
         userNameLabel.text = viewModel?.user.name
         phoneLabel.text  = viewModel?.user.phone
         companyLabel.text = viewModel?.user.company.name
@@ -38,6 +47,16 @@ class DetailUserViewController: UIViewController {
     }
 
 }
+
+extension DetailUserViewController: DetailDelegate {
+    func albums(_ albums: [Albums]) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+}
+
 extension DetailUserViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? UserAnnotation else { return nil }
@@ -56,3 +75,18 @@ extension DetailUserViewController: MKMapViewDelegate {
         return view
     }
 }
+
+extension DetailUserViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.albums.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "album", for: indexPath)
+        cell.textLabel?.text = viewModel?.albums[indexPath.row].title
+        return cell
+    }
+    
+    
+}
+

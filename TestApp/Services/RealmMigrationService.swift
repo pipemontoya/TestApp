@@ -12,7 +12,7 @@ import RealmSwift
 class RealmMigrationService {
     
     static func migration() {
-        let migrationID = 0
+        let migrationID = 1
         let config = Realm.Configuration(
             schemaVersion: UInt64(migrationID),
             migrationBlock: { migration, oldSchemaVersion in

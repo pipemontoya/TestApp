@@ -34,4 +34,27 @@ class ApiService {
         }
         task.resume()
     }
+    
+    func getAlbums(handler: @escaping (Result<[Albums], Error>) -> Void) {
+        var albums = [Albums]()
+        let url = URL(string: "https://jsonplaceholder.typicode.com/albums")
+        let task = URLSession.shared.dataTask(with: url!) {[weak self] (data, response, error) in
+            guard error == nil else {
+                print(error.debugDescription)
+                return
+            }
+            guard let content = data else {
+                print("without data")
+                return
+            }
+            let json = JSON(content)
+            for album in json {
+                albums.append(Albums(json: album.1))
+            }
+            self?.realm.save(objects: albums)
+            handler(.success(albums))
+        }
+        task.resume()
+    }
+    
 }

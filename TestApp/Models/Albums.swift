@@ -17,7 +17,7 @@ class Albums: Object {
     dynamic var title = ""
     
     override static func primaryKey() -> String? {
-        return "userId"
+        return "id"
     }
     
     convenience init(json: JSON) {
