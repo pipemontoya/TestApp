@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         return refreshControll
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         resultSearchController = ({

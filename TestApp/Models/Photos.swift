@@ -18,6 +18,10 @@ class Photos: Object {
     dynamic var url = ""
     dynamic var thumbnailUrl = ""
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
     convenience init(json: JSON) {
         self.init()
         self.albumId = json["albumId"].intValue

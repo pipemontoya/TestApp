@@ -143,11 +143,20 @@
                         <outlet property="phoneLabel" destination="GAN-QR-xxF" id="PE4-Wn-dYe"/>
                         <outlet property="tableView" destination="Lfm-3S-8Yf" id="9XU-re-3qO"/>
                         <outlet property="userNameLabel" destination="Hqy-F0-rcH" id="9gi-Eq-rxX"/>
+                        <segue destination="rk2-Oo-2Aq" kind="show" identifier="album" id="HnJ-90-kwy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyt-oa-ebK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-46.376811594202906" y="105.80357142857143"/>
+        </scene>
+        <!--DetailAlbum-->
+        <scene sceneID="WmA-lp-3dU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailAlbum" id="rk2-Oo-2Aq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZyB-lL-IPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="104"/>
         </scene>
     </scenes>
 </document>

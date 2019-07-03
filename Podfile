@@ -6,5 +6,6 @@ target 'TestApp' do
 
   pod 'RealmSwift'
   pod 'SwiftyJSON'
+  pod 'Kingfisher'
 
 end

@@ -17,6 +17,8 @@ class DetailViewModel {
     weak var delegate: DetailDelegate?
 
     let user: User
+    let regionRadius: CLLocationDistance = 1000
+
     private let api = ApiService.shared
     var albums: [Albums] {
         get {

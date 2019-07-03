@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hJu-ki-0e1">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Album View Controller-->
+        <scene sceneID="Zr9-xA-XV6">
+            <objects>
+                <viewController id="hJu-ki-0e1" customClass="DetailAlbumViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ajd-K1-b0n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Qt-lu-vAU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="7ge-kg-0jj">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="25" maxX="25" maxY="25"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="0rH-10-PKj" customClass="AlbumCollectionViewCell" customModule="TestApp" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="25" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Giv-xQ-it3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Giv-xQ-it3" firstAttribute="leading" secondItem="0rH-10-PKj" secondAttribute="leading" id="2pk-ir-pf9"/>
+                                            <constraint firstItem="Giv-xQ-it3" firstAttribute="top" secondItem="0rH-10-PKj" secondAttribute="top" id="7zb-Q2-ZF7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Giv-xQ-it3" secondAttribute="trailing" id="CYp-QS-phd"/>
+                                            <constraint firstAttribute="bottom" secondItem="Giv-xQ-it3" secondAttribute="bottom" id="yHr-Zf-dKl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="albumImage" destination="Giv-xQ-it3" id="20y-ax-jjn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Qt-lu-vAU" firstAttribute="top" secondItem="ajd-K1-b0n" secondAttribute="top" id="4sI-f7-hMZ"/>
+                            <constraint firstItem="2Qt-lu-vAU" firstAttribute="leading" secondItem="mID-nU-P21" secondAttribute="leading" id="7nY-Wk-2Lx"/>
+                            <constraint firstAttribute="bottom" secondItem="2Qt-lu-vAU" secondAttribute="bottom" id="Jok-l2-Q7U"/>
+                            <constraint firstItem="2Qt-lu-vAU" firstAttribute="trailing" secondItem="mID-nU-P21" secondAttribute="trailing" id="L6C-zp-THB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mID-nU-P21"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="2Qt-lu-vAU" id="GkM-18-MeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yQ-ZM-kZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.623188405797109" y="196.875"/>
+        </scene>
+    </scenes>
+</document>

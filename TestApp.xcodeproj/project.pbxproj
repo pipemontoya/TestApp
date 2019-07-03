@@ -27,6 +27,10 @@
 		6905E00722CBF22100A26B50 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6905E00622CBF22100A26B50 /* DetailUserViewController.swift */; };
 		6905E00922CBF2A500A26B50 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6905E00822CBF2A500A26B50 /* DetailViewModel.swift */; };
 		6905E00B22CC0C1900A26B50 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6905E00A22CC0C1900A26B50 /* UserAnnotation.swift */; };
+		6921989722CC366700058B63 /* DetailAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6921989622CC366700058B63 /* DetailAlbum.storyboard */; };
+		6921989922CC376C00058B63 /* DetailAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6921989822CC376C00058B63 /* DetailAlbumViewController.swift */; };
+		6921989B22CC383800058B63 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6921989A22CC383800058B63 /* AlbumCollectionViewCell.swift */; };
+		6921989D22CC391800058B63 /* DetailAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6921989C22CC391800058B63 /* DetailAlbumViewModel.swift */; };
 		77FCCB4674B419C56D7B4D66 /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABFEB8F69ECF46E3310AE09 /* Pods_TestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,10 @@
 		6905E00622CBF22100A26B50 /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
 		6905E00822CBF2A500A26B50 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		6905E00A22CC0C1900A26B50 /* UserAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		6921989622CC366700058B63 /* DetailAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailAlbum.storyboard; sourceTree = "<group>"; };
+		6921989822CC376C00058B63 /* DetailAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlbumViewController.swift; sourceTree = "<group>"; };
+		6921989A22CC383800058B63 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		6921989C22CC391800058B63 /* DetailAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlbumViewModel.swift; sourceTree = "<group>"; };
 		C84C03CB00F4021A53A6D1D0 /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		FFA673D7FC6D55A3813FF8C5 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +107,7 @@
 		6905DFD322CBB81100A26B50 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				6905E00C22CC1C1A00A26B50 /* DetailAlbum */,
 				6905E00322CBF1C200A26B50 /* DetailUser */,
 				6905DFFA22CBCF2F00A26B50 /* Main */,
 				6905DFED22CBBBBA00A26B50 /* Models */,
@@ -172,6 +181,17 @@
 			path = DetailUser;
 			sourceTree = "<group>";
 		};
+		6905E00C22CC1C1A00A26B50 /* DetailAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				6921989622CC366700058B63 /* DetailAlbum.storyboard */,
+				6921989822CC376C00058B63 /* DetailAlbumViewController.swift */,
+				6921989A22CC383800058B63 /* AlbumCollectionViewCell.swift */,
+				6921989C22CC391800058B63 /* DetailAlbumViewModel.swift */,
+			);
+			path = DetailAlbum;
+			sourceTree = "<group>";
+		};
 		D98C16CBD816D7B4D964D624 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6905DFDF22CBB81200A26B50 /* LaunchScreen.storyboard in Resources */,
+				6921989722CC366700058B63 /* DetailAlbum.storyboard in Resources */,
 				6905DFDC22CBB81200A26B50 /* Assets.xcassets in Resources */,
 				6905E00522CBF1D400A26B50 /* DetailUser.storyboard in Resources */,
 				6905DFDA22CBB81100A26B50 /* Main.storyboard in Resources */,
@@ -297,10 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6921989B22CC383800058B63 /* AlbumCollectionViewCell.swift in Sources */,
 				6905DFF122CBBC5800A26B50 /* Address.swift in Sources */,
 				6905DFD722CBB81100A26B50 /* ViewController.swift in Sources */,
 				6905E00022CBD2FF00A26B50 /* ApiService.swift in Sources */,
 				6905DFFE22CBD0D400A26B50 /* ViewControllerViewModel.swift in Sources */,
+				6921989D22CC391800058B63 /* DetailAlbumViewModel.swift in Sources */,
 				6905E00222CBEF6700A26B50 /* UserTableViewCell.swift in Sources */,
 				6905DFEA22CBBA5200A26B50 /* RealmService.swift in Sources */,
 				6905E00B22CC0C1900A26B50 /* UserAnnotation.swift in Sources */,
@@ -313,6 +336,7 @@
 				6905E00722CBF22100A26B50 /* DetailUserViewController.swift in Sources */,
 				6905E00922CBF2A500A26B50 /* DetailViewModel.swift in Sources */,
 				6905DFF922CBCE4300A26B50 /* Todo.swift in Sources */,
+				6921989922CC376C00058B63 /* DetailAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,17 +17,17 @@ class DetailUserViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var viewModel: DetailViewModel? = nil
-    let regionRadius: CLLocationDistance = 1000
     
     deinit {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.mapView.delegate = nil
+        viewModel?.delegate = nil
+        mapView.delegate = nil
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
         tableView.dataSource = self
+        tableView.delegate = self
         viewModel?.getAlbums()
         viewModel?.delegate = self
         userNameLabel.text = viewModel?.user.name
@@ -41,9 +41,17 @@ class DetailUserViewController: UIViewController {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(
             center: location.coordinate,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius)
+            latitudinalMeters: viewModel?.regionRadius ?? CLLocationDistance(),
+            longitudinalMeters: viewModel?.regionRadius ?? CLLocationDistance())
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "album" {
+            let album = sender as! Albums
+            let vc = segue.destination as? DetailAlbumViewController
+            vc?.viewModel = DetailAlbumViewModel(album: album)
+        }
     }
 
 }
@@ -86,7 +94,12 @@ extension DetailUserViewController: UITableViewDataSource {
         cell.textLabel?.text = viewModel?.albums[indexPath.row].title
         return cell
     }
-    
-    
+}
+
+extension DetailUserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let album = viewModel?.albums[indexPath.row]
+        performSegue(withIdentifier: "album", sender: album)
+    }
 }
 
