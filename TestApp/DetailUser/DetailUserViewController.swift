@@ -38,6 +38,11 @@ class DetailUserViewController: UIViewController {
         mapView.addAnnotation((viewModel?.createAnnotation())!)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(
             center: location.coordinate,
@@ -52,8 +57,15 @@ class DetailUserViewController: UIViewController {
             let vc = segue.destination as? DetailAlbumViewController
             vc?.viewModel = DetailAlbumViewModel(album: album)
         }
+        if segue.identifier == "todo" {
+            let vc = segue.destination as? ToDoViewController
+            vc?.viewModel = ToDoViewModel(user: viewModel?.user ?? User())
+        }
     }
 
+    @IBAction func goTodo(_ sender: Any) {
+        performSegue(withIdentifier: "todo", sender: nil)
+    }
 }
 
 extension DetailUserViewController: DetailDelegate {
@@ -92,6 +104,7 @@ extension DetailUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "album", for: indexPath)
         cell.textLabel?.text = viewModel?.albums[indexPath.row].title
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
 }

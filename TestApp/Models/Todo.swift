@@ -17,6 +17,10 @@ class Todo: Object {
     dynamic var title = ""
     dynamic var completed = false
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
     convenience init(json: JSON) {
         self.init()
         self.userId = json["userId"].intValue

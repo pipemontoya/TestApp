@@ -79,4 +79,26 @@ class ApiService {
         task.resume()
     }
     
+    func getToDoList(handler: @escaping (Result<[Todo], Error>) -> Void) {
+        var toDos = [Todo]()
+        let url = URL(string: "https://jsonplaceholder.typicode.com/todos")
+        let task = URLSession.shared.dataTask(with: url!) {[weak self] (data, response, error) in
+            guard error == nil else {
+                print(error.debugDescription)
+                return
+            }
+            guard let content = data else {
+                print("without data")
+                return
+            }
+            let json = JSON(content)
+            for todo in json {
+                toDos.append(Todo(json: todo.1))
+            }
+            self?.realm.save(objects: toDos)
+            handler(.success(toDos))
+        }
+        task.resume()
+    }
+    
 }

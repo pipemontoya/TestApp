@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aRL-Yh-End">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--To Do View Controller-->
+        <scene sceneID="sfh-Ud-bpX">
+            <objects>
+                <viewController id="aRL-Yh-End" customClass="ToDoViewController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1RQ-bS-W4R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nzh-ag-Pco">
+                                <rect key="frame" x="0.0" y="50" width="414" height="846"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="todo" id="qRz-C0-eob">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qRz-C0-eob" id="BDS-75-zrs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jr-7W-2xh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ddT-HV-E23">
+                                        <rect key="frame" x="16" y="6" width="382" height="29"/>
+                                        <segments>
+                                            <segment title="Pending"/>
+                                            <segment title="Completed"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.34509803919999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ddT-HV-E23" secondAttribute="trailing" constant="16" id="BTA-HB-z1l"/>
+                                    <constraint firstItem="ddT-HV-E23" firstAttribute="leading" secondItem="1Jr-7W-2xh" secondAttribute="leading" constant="16" id="BvX-cx-XhB"/>
+                                    <constraint firstAttribute="height" constant="50" id="NNi-RE-XLu"/>
+                                    <constraint firstAttribute="bottom" secondItem="ddT-HV-E23" secondAttribute="bottom" constant="16" id="We1-Zu-3R3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Jr-7W-2xh" firstAttribute="top" secondItem="1RQ-bS-W4R" secondAttribute="top" id="1rn-mT-ySo"/>
+                            <constraint firstItem="nzh-ag-Pco" firstAttribute="leading" secondItem="9kF-94-kWL" secondAttribute="leading" id="2ax-je-3CC"/>
+                            <constraint firstItem="nzh-ag-Pco" firstAttribute="top" secondItem="1Jr-7W-2xh" secondAttribute="bottom" id="5eL-m9-b2c"/>
+                            <constraint firstAttribute="bottom" secondItem="nzh-ag-Pco" secondAttribute="bottom" id="UsF-il-sA8"/>
+                            <constraint firstItem="1Jr-7W-2xh" firstAttribute="leading" secondItem="9kF-94-kWL" secondAttribute="leading" id="nC0-qQ-TCL"/>
+                            <constraint firstItem="1Jr-7W-2xh" firstAttribute="trailing" secondItem="9kF-94-kWL" secondAttribute="trailing" id="qLZ-5D-wsl"/>
+                            <constraint firstItem="nzh-ag-Pco" firstAttribute="trailing" secondItem="9kF-94-kWL" secondAttribute="trailing" id="wbA-gK-zG4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9kF-94-kWL"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="ddT-HV-E23" id="Shg-0Q-ajM"/>
+                        <outlet property="tableView" destination="nzh-ag-Pco" id="GCf-Tj-7NK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1h6-wR-Bfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="150.72463768115944" y="187.5"/>
+        </scene>
+    </scenes>
+</document>
